@@ -28,5 +28,19 @@ def send():
 
     return redirect("/", code=302)
 
+@app.route("/data", methods=["GET", "POST"])
+def data():
+    if request.method == "POST":
+        #return data
+        data = xxx
+        return redirect("data.html", jsonify(data))
+
+    return render_template("data.html")
+
+@app.route("/about")
+def about():
+    
+    return render_template("about.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
