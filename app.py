@@ -11,7 +11,7 @@ from flask import (
 # Flask Setup
 #################################################
 app = Flask(__name__)
-model = load_model('rating_model')
+# model = load_model('rating_model')
 
 #create route that renders index.html template
 @app.route("/")
@@ -23,8 +23,15 @@ def home():
 @app.route("/send", methods=["GET", "POST"])
 def send():
     if request.method == "POST":
-        #bring in model and run user input through it
-        return redirect("/", prediction)
+        #bring in user input
+        data = request.get_json()
+        print("hello",data)
+        # Load the model
+        # from tensorflow.keras.models import load_model
+        # rating_model = load_model("rating_model.h5")
+        # description = request.form['']
+        # model_loss, model_accuracy = rating_model.evaluate(description)
+        return redirect("/", data)
 
     return redirect("/", code=302)
 
