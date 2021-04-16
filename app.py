@@ -46,14 +46,15 @@ def send():
         data = remove_unicode(data)
         data = [data]
         
-        with open('tokenizer.pickle', 'rb') as handle:
-            tokenizer = pickle.load(handle)
-            seq = tokenizer.texts_to_sequences(data)
-            padded = pad_sequences(seq, maxlen=250)
+        # with open('tokenizer.pickle', 'rb') as handle:
+        #     tokenizer = pickle.load(handle)
+        #     seq = tokenizer.texts_to_sequences(data)
+        #     padded = pad_sequences(seq, maxlen=250)
 
         # Load the model
         from tensorflow.keras.models import load_model
-        # subgenre_model = load_model("subgenre_trained.h5")
+        subgenre_model = load_model("subgenre_trained.h5")
+        print("successfully loaded file")
         # model_loss, model_accuracy = rating_model.evaluate(description)
         return redirect("/")
 
