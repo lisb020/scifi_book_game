@@ -11,8 +11,6 @@ from keras.preprocessing.sequence import pad_sequences
 import pickle
 import numpy as np
 
-winner = ""
-
 #################################################
 # Flask Setup
 #################################################
@@ -32,21 +30,20 @@ def remove_unicode(row):
 
 
 #create route that renders index.html template
-@app.route("/", methods=["GET", "POST"])
+@app.route("/")
 def home():
-    global winner
-    return render_template("index.html", subgenre=winner)
-
-
+    return render_template("index.html")
 
 # Send the user inputted data to the saved model
-@app.route("/send", methods=["GET", "POST"])
+@app.route("/send", methods=["GET","POST"])
 def send():
-    global winner
     if request.method == "POST":
         #bring in user input
         data = request.get_json()
-        print("data ",data)
+        # data = "hello"
+        print("data ",data["description"])
+        print("type",type(data))
+        data = data["description"]
         data = data.lower()
         data = remove_nums(data)
         data = remove_multi_spaces(data)
@@ -65,15 +62,13 @@ def send():
         print("successfully loaded file")
         
         pred = subgenre_model.predict(padded)
-        labels = ['sf_aliens', 'sf_alternate_history', 'sf_alternate_universe','sf_apocalyptic', 'sf_cyberpunk', 'sf_dystopia', 'sf_hard','sf_military', 'sf_robots', 'sf_space_opera', 'sf_steampunk','sf_time_travel']
+        labels = ['aliens', 'alternate history', 'alternate universe','apocalyptic', 'cyberpunk', 'dystopia', 'hard','military', 'robots', 'space opera', 'steampunk','time travel']
         winner = labels[np.argmax(pred)]
-        print("prediction: " ,pred, labels[np.argmax(pred)])
-
-        return redirect("/")
-
-    return render_template("result.html", subgenre=winner)
+        print("prediction: " ,pred, winner)
+        
+        return {"body":winner}
     
-    # return render_template("result.html", subgenre=pred)
+    return redirect("/")
 
 @app.route("/data", methods=["GET", "POST"])
 def data():
