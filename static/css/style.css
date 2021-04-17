@@ -15,6 +15,15 @@ body{
   color: rgba(255, 242, 58, 0.925);
   font-size: large;
 }
+.about_title{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgba(255, 242, 58, 0.925);
+}
+
+.list{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+}
 
 @keyframes fadeIn {
     0%   { opacity:1; }
@@ -127,4 +136,16 @@ body{
   -o-animation:move-clouds-back 200s linear infinite;
   -webkit-animation:move-clouds-back 200s linear infinite;
   animation:move-clouds-back 200s linear infinite;
+}
+
+.table {
+  font-size: 15px;
+  border-top-color: rgb(240, 235, 235);
+}
+.box {
+  margin-top: 10px;
+  margin-bottom: 60px;
+  padding: 5px 30px 5px;
+  color:black;
+  background-color: rgb(243, 236, 236);
 }
