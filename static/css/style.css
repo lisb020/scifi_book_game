@@ -6,14 +6,22 @@ body{
 .question{
     color:rgba(255, 242, 58, 0.925);
 }
+.instructions{
+  font-size: 35px;
+  color: white;
+}
+h1{
+  font-size:60px;
+}
 .form-label{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: rgba(255, 242, 58, 0.925);
+    font-size: 20px
 }
-#subgenreRating{
+#subgenre, #rating{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: rgba(255, 242, 58, 0.925);
-  font-size: large;
+  font-size: 35px;
 }
 
 @keyframes fadeIn {
@@ -128,3 +136,5 @@ body{
   -webkit-animation:move-clouds-back 200s linear infinite;
   animation:move-clouds-back 200s linear infinite;
 }
+
+
