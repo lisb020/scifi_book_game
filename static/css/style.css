@@ -127,3 +127,15 @@ body{
   -webkit-animation:move-clouds-back 200s linear infinite;
   animation:move-clouds-back 200s linear infinite;
 }
+
+.table {
+  font-size: 15px;
+  border-top-color: rgb(240, 235, 235);
+}
+.box {
+  margin-top: 10px;
+  margin-bottom: 60px;
+  padding: 5px 30px 5px;
+  color:black;
+  background-color: rgb(243, 236, 236);
+}
