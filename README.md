@@ -8,8 +8,8 @@ We have developed a web page which uses machine learning to predict the success 
 
 ## Group Members
 - Jaime Jimenez: Machine Learning; CSS; HTML
-- Mary Mays: Data aquisition, cleaning, Machine Learning; jupyter notebook; 
-- Lisa Stroh: Flask; python; JavaScript; CSS; Deployment
+- Mary Mays: Data aquisition, cleaning; Machine Learning; Jupyter notebook; 
+- Lisa Stroh: Machine Learning; Flask; python; JavaScript; CSS; Deployment
 
 ## Product Design
 - Pulled and transformed csv files in jupyter notebook
@@ -23,7 +23,42 @@ We have developed a web page which uses machine learning to predict the success 
 - Bootstrap and css for design
 - Deployed to Heroku
 
-More details HERE
+### Machine Learning Models
+- We created 2 sequential recurrent neural network (RNN) models with TensorFlow, Subgenre and Rating.
+- The data is cleaned by removing double spaces, numbers, special characters, and names. 
+- The data is tokenized using Keras. 
+- The models are fed using the tokenized book descriptions, and the hot encoded subgenres. 
+- The ratings were split into 3 categories and then hot encoded and fed into the model. The categories are: 
+  - 4 - 5 rating is "Great Read" 
+  - 3.75 - 4 rating is "Average Rating"
+  - Less than 3.75 rating is "Room for improvement"
+- The machine learning models are used within the flask app when the "submit" button is pressed on the website
+  - The tokenizer is exported as a .pickle file
+  - The two models (subgenre and rating) are exported as .h5 files
 
+#### Subgenre RNN Model
+- 30 epochs
+- 4 layers
+- Adamax Optimizer - used since we have natural language categorization
+- Long Short-Term Memory (LSTM)
+- Dropout Rate = 0.2 to help reduce overfitting
+
+The subgenre model accuracy and loss graphs
+![Subgenre Accuracy](/static/images/subgenre_model_acc.png)
+![Subgenre Loss](/static/images/subgenre_model_loss.png)
+
+#### Rating RNN Model
+- 5 epochs
+- 4 layers
+- Adam Optimizer
+- Long Short-Term Memory (LSTM) - Included activity_regularizer to help reduce overfitting
+- Dropout Rate = 0.45 to help reduce overfitting
+
+The rating model accuracy and loss graphs
+![Rating Accuracy](/static/images/rating_model_acc.png)
+![Rating Loss](/static/images/rating_model_loss.png)
+
+## Deployment
+This app is deployed to Heroku [here](https://scifybook.herokuapp.com/about)
 ## Presentation
 This project was presented with the following [presentation](link here)
