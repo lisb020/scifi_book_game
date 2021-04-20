@@ -63,5 +63,7 @@ The rating model accuracy and loss graphs
 ## Deployment
 This app is deployed to Heroku [here](https://scifybook.herokuapp.com/about)
 
+![Website Screenshot](/static/images/Website_Screenshot.png)
+
 ## Presentation
 This project was presented with this [presentation](https://github.com/lisb020/scifi_book_game/blob/main/scifi%20Books%20Presentation.pdf)
