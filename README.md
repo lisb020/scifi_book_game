@@ -32,9 +32,9 @@ We have developed a web page which uses machine learning to predict the success 
   - 4 - 5 rating is "Great Read" 
   - 3.75 - 4 rating is "Average Rating"
   - Less than 3.75 rating is "Room for improvement"
-- The machine learning models are used within the flask app when the "submit" button is pressed on the website
-  - The tokenizer is exported as a .pickle file
-  - The two models (subgenre and rating) are exported as .h5 files
+- The tokenizer is exported as a .pickle file
+- The two models (subgenre and rating) are exported as .h5 files
+- The machine learning models and tokenizer are used within the flask app when the "submit" button is pressed on the website
 
 #### Subgenre RNN Model
 - 30 epochs
@@ -44,6 +44,7 @@ We have developed a web page which uses machine learning to predict the success 
 - Dropout Rate = 0.2 to help reduce overfitting
 
 The subgenre model accuracy and loss graphs
+
 ![Subgenre Accuracy](/static/images/subgenre_model_acc.png)
 ![Subgenre Loss](/static/images/subgenre_model_loss.png)
 
@@ -55,10 +56,12 @@ The subgenre model accuracy and loss graphs
 - Dropout Rate = 0.45 to help reduce overfitting
 
 The rating model accuracy and loss graphs
+
 ![Rating Accuracy](/static/images/rating_model_acc.png)
 ![Rating Loss](/static/images/rating_model_loss.png)
 
 ## Deployment
 This app is deployed to Heroku [here](https://scifybook.herokuapp.com/about)
+
 ## Presentation
-This project was presented with the following [presentation](link here)
+This project was presented with this [presentation](https://github.com/lisb020/scifi_book_game/blob/main/scifi%20Books%20Presentation.pdf)
